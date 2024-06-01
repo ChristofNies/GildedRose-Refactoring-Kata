@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 public class NormalItem implements ItemBehaviour {
-    private Item item;
+    protected Item item;
 
     public NormalItem(Item item) {
         this.item = item;

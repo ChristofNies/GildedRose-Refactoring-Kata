@@ -1,10 +1,8 @@
 package com.gildedrose;
 
-public class BackstagePasses implements ItemBehaviour {
-    private Item item;
-
+public class BackstagePasses extends NormalItem {
     public BackstagePasses(Item item) {
-        this.item = item;
+        super(item);
     }
 
     @Override
@@ -16,11 +14,6 @@ public class BackstagePasses implements ItemBehaviour {
         } else {
             increaseQuality(3);
         }
-    }
-
-    @Override
-    public void updateSellIn() {
-        item.sellIn--;
     }
 
     @Override

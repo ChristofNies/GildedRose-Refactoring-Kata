@@ -1,20 +1,13 @@
 package com.gildedrose;
 
-public class AgedBrie implements ItemBehaviour {
-    private Item item;
-
+public class AgedBrie extends NormalItem {
     public AgedBrie(Item item) {
-        this.item = item;
+        super(item);
     }
 
     @Override
     public void updateItemQuality() {
         increaseQuality();
-    }
-
-    @Override
-    public void updateSellIn() {
-        item.sellIn--;
     }
 
     @Override
