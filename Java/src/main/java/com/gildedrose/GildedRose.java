@@ -39,7 +39,7 @@ class GildedRose {
 
     private void decreaseQuality(Item item) {
         if (item.quality > 0) {
-                item.quality = item.quality - 1;
+            item.quality = item.quality - 1;
 
         }
     }
@@ -58,16 +58,12 @@ class GildedRose {
 
     private void updateExpiredItem(Item item) {
         if (item.sellIn < 0) {
-            if (!item.name.equals("Aged Brie")) {
-                if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        decreaseQuality(item);
-                    }
-                } else {
-                    item.quality = 0;
-                }
-            } else {
+            if (item.name.equals("Aged Brie")) {
                 increaseQuality(item);
+            } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                item.quality = 0;
+            } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                decreaseQuality(item);
             }
         }
     }
