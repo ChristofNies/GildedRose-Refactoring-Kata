@@ -9,17 +9,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemBehaviour itemBehaviour;
-
-            if (item.name.equals(ItemType.AGED_BRIE.getName())) {
-                itemBehaviour = new AgedBrie(item);
-            } else if (item.name.equals(ItemType.BACKSTAGE_PASSES.getName())) {
-                itemBehaviour = new BackstagePasses(item);
-            } else if (item.name.equals(ItemType.SULFURAS.getName())) {
-                itemBehaviour = new Sulfuras();
-            } else {
-                itemBehaviour = new NormalItem(item);
-            }
+            ItemBehaviour itemBehaviour = ItemFactory.createItem(item);
 
             itemBehaviour.updateItemQuality();
             itemBehaviour.updateSellIn();
