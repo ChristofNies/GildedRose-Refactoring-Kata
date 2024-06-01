@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class ItemWrapper {
+public class ItemWrapper implements ItemBehaviour {
 
     private Item item;
 
@@ -9,9 +9,7 @@ public class ItemWrapper {
     }
 
     public void updateItemQuality() {
-        if (item.name.equals("Aged Brie")) {
-            increaseQuality(item);
-        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (item.quality < 50) {
                 item.quality = item.quality + 1;
 
@@ -36,9 +34,7 @@ public class ItemWrapper {
 
     public void updateExpiredItem() {
         if (item.sellIn < 0) {
-            if (item.name.equals("Aged Brie")) {
-                increaseQuality(item);
-            } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 item.quality = 0;
             } else if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 decreaseQuality(item);
@@ -53,7 +49,7 @@ public class ItemWrapper {
         }
     }
 
-    private void increaseQuality(Item item) {
+    public static void increaseQuality(Item item) {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }

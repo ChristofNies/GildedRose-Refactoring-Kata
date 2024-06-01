@@ -9,11 +9,17 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemWrapper itemWrapper = new ItemWrapper(item);
+            ItemBehaviour itemBehaviour;
 
-            itemWrapper.updateItemQuality();
-            itemWrapper.updateSellIn();
-            itemWrapper.updateExpiredItem();
+            if (item.name.equals("Aged Brie")) {
+                itemBehaviour = new AgedBrie(item);
+            } else {
+                itemBehaviour = new ItemWrapper(item);
+            }
+
+            itemBehaviour.updateItemQuality();
+            itemBehaviour.updateSellIn();
+            itemBehaviour.updateExpiredItem();
         }
     }
 }
