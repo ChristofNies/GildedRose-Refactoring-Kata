@@ -11,8 +11,10 @@ class GildedRose {
         for (Item item : items) {
             ItemBehaviour itemBehaviour;
 
-            if (item.name.equals("Aged Brie")) {
+            if (item.name.equals(ItemType.AGED_BRIE.getName())) {
                 itemBehaviour = new AgedBrie(item);
+            } else if (item.name.equals(ItemType.BACKSTAGE_PASSES.getName())) {
+                itemBehaviour = new BackstagePasses(item);
             } else {
                 itemBehaviour = new ItemWrapper(item);
             }
