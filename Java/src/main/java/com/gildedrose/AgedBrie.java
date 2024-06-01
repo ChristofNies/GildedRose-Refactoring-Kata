@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static com.gildedrose.NormalItem.increaseQuality;
-
 public class AgedBrie implements ItemBehaviour {
     private Item item;
 
@@ -11,7 +9,7 @@ public class AgedBrie implements ItemBehaviour {
 
     @Override
     public void updateItemQuality() {
-        increaseQuality(item);
+        increaseQuality();
     }
 
     @Override
@@ -22,7 +20,13 @@ public class AgedBrie implements ItemBehaviour {
     @Override
     public void updateExpiredItem() {
         if (item.sellIn < 0) {
-            increaseQuality(item);
+            increaseQuality();
+        }
+    }
+
+    private void increaseQuality() {
+        if (item.quality < 50) {
+            item.quality++;
         }
     }
 }

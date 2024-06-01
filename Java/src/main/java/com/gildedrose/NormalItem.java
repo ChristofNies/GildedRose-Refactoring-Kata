@@ -26,10 +26,4 @@ public class NormalItem implements ItemBehaviour {
             item.quality--;
         }
     }
-
-    public static void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality++;
-        }
-    }
 }

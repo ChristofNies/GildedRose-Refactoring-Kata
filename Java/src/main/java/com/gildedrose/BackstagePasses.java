@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static com.gildedrose.NormalItem.increaseQuality;
-
 public class BackstagePasses implements ItemBehaviour {
     private Item item;
 
@@ -11,14 +9,12 @@ public class BackstagePasses implements ItemBehaviour {
 
     @Override
     public void updateItemQuality() {
-        increaseQuality(item);
-
-        if (item.sellIn < 11) {
-            increaseQuality(item);
-        }
-
-        if (item.sellIn < 6) {
-            increaseQuality(item);
+        if (item.sellIn > 10) {
+            increaseQuality(1);
+        } else if (item.sellIn > 5) {
+            increaseQuality(2);
+        } else {
+            increaseQuality(3);
         }
     }
 
@@ -32,5 +28,9 @@ public class BackstagePasses implements ItemBehaviour {
         if (item.sellIn < 0) {
             item.quality = 0;
         }
+    }
+
+    private void increaseQuality(int increase) {
+        item.quality = Math.min(item.quality + increase, 50);
     }
 }
