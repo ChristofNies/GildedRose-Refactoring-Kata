@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemWrapper.increaseQuality;
+import static com.gildedrose.NormalItem.increaseQuality;
 
 public class AgedBrie implements ItemBehaviour {
     private Item item;

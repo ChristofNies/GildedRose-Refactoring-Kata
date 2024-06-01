@@ -15,8 +15,10 @@ class GildedRose {
                 itemBehaviour = new AgedBrie(item);
             } else if (item.name.equals(ItemType.BACKSTAGE_PASSES.getName())) {
                 itemBehaviour = new BackstagePasses(item);
+            } else if (item.name.equals(ItemType.SULFURAS.getName())) {
+                itemBehaviour = new Sulfuras();
             } else {
-                itemBehaviour = new ItemWrapper(item);
+                itemBehaviour = new NormalItem(item);
             }
 
             itemBehaviour.updateItemQuality();

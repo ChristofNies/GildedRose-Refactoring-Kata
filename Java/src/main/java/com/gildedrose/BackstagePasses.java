@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemWrapper.increaseQuality;
+import static com.gildedrose.NormalItem.increaseQuality;
 
 public class BackstagePasses implements ItemBehaviour {
     private Item item;
@@ -24,7 +24,7 @@ public class BackstagePasses implements ItemBehaviour {
 
     @Override
     public void updateSellIn() {
-        item.sellIn = item.sellIn - 1;
+        item.sellIn--;
     }
 
     @Override
