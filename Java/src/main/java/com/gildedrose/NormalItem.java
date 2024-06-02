@@ -8,7 +8,7 @@ public class NormalItem implements ItemBehaviour {
     }
 
     public void updateItemQuality() {
-        decreaseQuality(item);
+        decreaseQuality();
     }
 
     public void updateSellIn() {
@@ -17,11 +17,11 @@ public class NormalItem implements ItemBehaviour {
 
     public void updateExpiredItem() {
         if (item.sellIn < 0) {
-            decreaseQuality(item);
+            decreaseQuality();
         }
     }
 
-    private void decreaseQuality(Item item) {
+    private void decreaseQuality() {
         if (item.quality > 0) {
             item.quality--;
         }

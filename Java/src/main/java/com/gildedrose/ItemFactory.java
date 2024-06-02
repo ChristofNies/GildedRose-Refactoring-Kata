@@ -17,6 +17,10 @@ public class ItemFactory {
             return new AgedBrie(item);
         }
 
+        if (item.name.equals(ItemType.CONJURED_ITEM.getName())) {
+            return new ConjuredItem(item);
+        }
+
         return new NormalItem(item);
     }
 }

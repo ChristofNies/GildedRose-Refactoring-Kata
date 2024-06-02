@@ -23,4 +23,37 @@ class GildedRoseTest {
 
         assertEquals(refactoredOutput.toString(), content);
     }
+
+    @Test
+    void updateQuality_decreases_quality_of_conjured_items_twice_as_fast_before_its_sell_in_date() {
+        Item[] items = new Item[] {new Item("Conjured Mana Cake", 3, 6) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(4, app.items[0].quality);
+        assertEquals(2, app.items[0].sellIn);
+    }
+
+    @Test
+    void updateQuality_decreases_quality_of_conjured_items_twice_as_fast_after_its_sell_in_date() {
+        Item[] items = new Item[] {new Item("Conjured Mana Cake", -1, 6) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(2, app.items[0].quality);
+        assertEquals(-2, app.items[0].sellIn);
+    }
+
+    @Test
+    void updateQuality_conjured_items_quality_can_not_be_negative() {
+        Item[] items = new Item[] {new Item("Conjured Mana Cake", 2, 1) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+        assertEquals(1, app.items[0].sellIn);
+    }
 }
